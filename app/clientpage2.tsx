@@ -46,12 +46,14 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
   const [backdrop, setBackdrop] = useState(-1);
   const [eventIndex, setEventIndex] = useState(0);
   const [regionIndex, setRegionIndex] = useState(0);
+  const [backgroundOpacity, setBackgroundOpacity] = useState(0);
 
-  let background_opacity = 0;
+  useEffect(() => {
+    if (backdrop == 0) setBackgroundOpacity(10);
+    else if (backdrop == 1) setBackgroundOpacity(20);
+  }, [backdrop]);
+
   let hideMode = backdrop == 1;
-
-  if (backdrop == 0) background_opacity = 10;
-  else if (backdrop == 1) background_opacity = 20;
 
   let switchBackdrop = () => {
     if (backdrop == 0) setBackdrop(1);
@@ -69,8 +71,8 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
   return (
     <body className={"w-screen relative overflow-x-hidden bg-primary text-whitetext transition ease-out duration-400 delay-200 " + (hideMode ? "scale-90" : "")}>
         <Image
-            src="/background_raw_fit.jpg" loading="lazy" onLoadingComplete={(image) => {setBackdrop(0)}}
-            className={"w-screen h-screen fixed object-center -z-10 top-0 left-0 object-cover transition-all duration-700 ease-out delay-300 opacity-" + background_opacity + (hideMode ? " rounded-3xl" : "")}
+            src="/background_raw_fit.jpg" loading="lazy" onLoad={(image) => {setBackdrop(0)}}
+            className={"w-screen h-screen fixed object-center -z-10 top-0 left-0 object-cover transition-all duration-700 ease-out delay-300 " + (hideMode ? " rounded-3xl opacity-20" : (backdrop == -1 ? "opacity-0" : "opacity-10"))}
             width={900} height={506} quality={100} alt=""
         />
 
