@@ -76,7 +76,7 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
 
 
 
-            <div className={"section_first transition-all delay-200 " + (hideMode ? "opacity-0" : "opacity-100")}>
+            <div className={"section_first transition-all delay-200 " + (hideMode ? "hidden lg:block lg:opacity-0" : "lg:opacity-100")}>
                 <h1 className="font-roboto text-5xl font-medium">SAT Seat Availability</h1>
                 <h2 className="font-roboto text-4xl font-light tracking-wide">Uzbekistan</h2>
 
@@ -104,7 +104,7 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
 
 
 
-            <div className={"section_second transition-all delay-200 row-span-2 max-h-full overflow-y-auto pr-1 pl-1 lg:pr-8 py-1 " + (hideMode ? "opacity-0" : "opacity-100")}>
+            <div className={"section_second transition-all delay-200 row-span-2 max-h-full pr-1 pl-1 lg:pr-8 py-1 overflow-y-auto " + (hideMode ? "hidden lg:block lg:opacity-0" : "lg:opacity-100 ")}>
                 <div className="text-blacktext space-y-10 ">
                     {filterExamPacks(exam_packs, regionIndex, eventIndex).map((v, idx) => (
                     <div className="rounded-2xl px-6 py-5 hover:text-blacktext hover:bg-indigo-50 hover:ring-0 group transition bg-indigo-300/20 text-white/95 ring-white/40 ring-1">
