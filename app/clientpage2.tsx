@@ -46,12 +46,7 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
   const [backdrop, setBackdrop] = useState(-1);
   const [eventIndex, setEventIndex] = useState(0);
   const [regionIndex, setRegionIndex] = useState(0);
-  const [backgroundOpacity, setBackgroundOpacity] = useState(0);
-
-  useEffect(() => {
-    if (backdrop == 0) setBackgroundOpacity(10);
-    else if (backdrop == 1) setBackgroundOpacity(20);
-  }, [backdrop]);
+  const [images, setImages] = useState(false);
 
   let hideMode = backdrop == 1;
 
@@ -71,7 +66,7 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
   return (
     <body className={"w-screen relative overflow-x-hidden bg-primary text-whitetext transition ease-out duration-400 delay-200 " + (hideMode ? "scale-90" : "")}>
         <Image
-            src="/background_raw_fit.jpg" priority={false} onLoad={(image) => {setBackdrop(0)}}
+            src="/background_raw_fit.jpg" priority={false} onLoad={(image) => {setBackdrop(0); setImages(true)}}
             className={"w-screen h-screen fixed object-center -z-10 top-0 left-0 object-cover transition-all duration-700 ease-out delay-300 " + (hideMode ? " rounded-3xl opacity-20" : (backdrop == -1 ? "opacity-0" : "opacity-10"))}
             width={900} height={506} quality={100} alt=""
         />
@@ -137,9 +132,9 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
 
             <div className="section_third flex flex-col justify-end pl-3 lg:pl-0">
                 <div className="w-full h-fit flex flex-row items-end flex-wrap gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-5">
-                    <Image src={"/uzlogo.png"} alt="" className="h-10 sm:h-12 md:h-14 w-auto transition-opacity opacity-0" width={130} height={125} priority={false} onLoadingComplete={(image) => { image.classList.remove("opacity-0"); }}></Image>
-                    <div className="bg-white h-8 px-3 sm:h-10 sm:px-4 md:h-12 md:px-5 rounded-full flex flex-row items-center justify-center transition-opacity delay-200 opacity-0">
-                      <Image src={"/college_board.png"} alt="" className="h-6 sm:h-8 md:h-10 w-auto" width={150} height={54.5} priority={false} onLoadingComplete={(image) => { image.parentElement?.classList.remove("opacity-0"); }}></Image>
+                    <Image src={"/uzlogo.png"} alt="" className={"h-10 sm:h-12 md:h-14 w-auto transition-opacity delay-700 " + (images ? "" : "opacity-0")} width={130} height={125} priority={false}></Image>
+                    <div className={"bg-white h-8 px-3 sm:h-10 sm:px-4 md:h-12 md:px-5 rounded-full flex flex-row items-center justify-center transition-opacity delay-1000 " + (images ? "" : "opacity-0")}>
+                      <Image src={"/college_board.png"} alt="" className="h-6 sm:h-8 md:h-10 w-auto" width={150} height={54.5} priority={false}></Image>
                     </div>
                 </div>
                 <div onClick={() => switchBackdrop()} className={"mt-4 w-fit transition-all rounded-xl text-white/80"}>
