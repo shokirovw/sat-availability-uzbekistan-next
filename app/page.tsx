@@ -1,113 +1,212 @@
-import Image from "next/image";
+import ClientPage from "./clientpage2";
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+type ColBoardEventInfo = {
+    adminId: number,
+    asmtEventId: number,
+    eventTitle: string,
+    eventStartTs: string,
+    eventDisplayDate: string,
+    eventFormattedDate: string,
+    eventInternational: boolean,
+    finalRegistrationTs: string,
+    intlFinalRegTs: string
 }
+
+type ColBoardTestCenterAtEventDate = {
+    name: string,
+    code: string,
+    address1: string,
+    address2: string,
+    address3: string,
+    city: string,
+    state: string,
+    region: string,
+    zip: string,
+    country: string,
+    distance: string,
+    seatAvailability: boolean
+}
+
+const FetchOnFulfilled = (response: Response) => {
+    if (response.status !== 200 && !response.ok) {
+      throw new Error(`[${response.status}] Unable to fetch resource`)
+    }
+
+    return response.json()
+}
+  
+const FetchOnRejected = (err: Error) => {
+    console.error(err)
+    throw new Error(`Some error`)
+}
+
+async function prepareData () {
+    const colboard_events_data: ColBoardEventInfo[] = await 
+        fetch('https://sat-admin-dates.cms-prod.collegeboard.org/', { next: { revalidate: 43200 } })
+            .then(FetchOnFulfilled, FetchOnRejected)
+            .then(json => json)
+
+    const testCentersPromises = [];
+
+    for (let i = 0; i < colboard_events_data.length; ++i) {
+        let date = colboard_events_data[i].eventFormattedDate;
+
+        testCentersPromises.push(
+            fetch(`https://aru-test-center-search.cms-prod.collegeboard.org/prod/test-centers?date=${date}&country=UZ`, { next: { revalidate: 3600 } })
+                .then(FetchOnFulfilled, FetchOnRejected)
+                .then(json => json)
+        );
+    }
+
+    const test_centers_at_events_data: ColBoardTestCenterAtEventDate[][] = await Promise.all([...testCentersPromises]);
+
+
+
+    return { colboard_events_data, test_centers_at_events_data };
+} 
+
+export type OurEventInfo = {
+    title: string;
+    eventDisplayDate: string;
+    eventFormattedDate: string;
+    eventRawDate: string;
+    registrationEndRawDate: string;
+    weekdayDisplay: string;
+}
+
+export type OurTestCenterInfo = {
+    name: string;
+    code: string;
+    address: string;
+    displayCity: string;
+    region_index: number;
+}
+
+export type OurExamPack = {
+    test_center_index: number,
+    region_index: number;
+    event_index: number,
+    availibility: boolean
+}
+
+export type OurRegion = string;
+
+const regions: string[] = [
+    "Tashkent", // 0
+    "Tashkent Region", // 1
+    "Andijan Region", // 2
+    "Bukhara Region", // 3
+    "Fergana Region", // 4
+    "Jizzakh Region", // 5
+    "Namangan Region", // 6
+    "Navoi Region", // 7
+    "Qashqadaryo Region", // 8
+    "Samarqand Region", // 9
+    "Sirdaryo Region", // 10
+    "Surxondaryo Region", // 11
+    "Xorazm Region", // 12
+    "Nukus", // 13
+    "Others" // 14
+]
+
+const keywords: { [key: string]: number } = {
+    "Nurafshon City": 1,
+    "TASHKENT": 0,
+    "Jizzakh": 5,
+    "Nukus": 13,
+    "Namangan": 6,
+    "Fergana city": 4,
+    "Samarkand": 9,
+    "Bukhara": 3,
+    "Gulistan, Sirdarya": 10,
+    "Tashkent": 0,
+    "Khiva": 12,
+    "Termez": 11,
+    "Andijon": 2,
+    "Tashkent City": 0,
+    "Navoi": 7
+}
+
+function getRegionIndex (test_center: ColBoardTestCenterAtEventDate): number {
+    let temp = keywords[test_center.city];
+
+    if (Number.isInteger(temp)) return temp;
+    else return 14;
+}
+
+async function BusinessLogic () {
+    const { colboard_events_data, test_centers_at_events_data } = await prepareData();
+
+    let events: OurEventInfo[] = [];
+    let test_centers: OurTestCenterInfo[] = [];
+    let test_centers_counter = 0;
+    let exam_packs: OurExamPack[] = [];
+    
+    for (let i = 0; i < colboard_events_data.length; ++i) {
+        let element = colboard_events_data[i];
+
+        events.push({
+            title: element.eventTitle,
+            eventDisplayDate: element.eventDisplayDate.split(",")[0],
+            eventFormattedDate: element.eventFormattedDate,
+            eventRawDate: element.eventStartTs,
+            registrationEndRawDate: element.finalRegistrationTs,
+            weekdayDisplay: element.eventDisplayDate.split(" — ")[1]
+        })
+    }
+
+    let checked_test_centers_code : {[key: string]: number} = {}
+
+    for (let i = 0; i < test_centers_at_events_data.length; ++i) {
+        let test_centers_at_event = test_centers_at_events_data[i];
+
+        for (let j = 0; j < test_centers_at_event.length; ++j) {
+            let test_center = test_centers_at_event[j];
+
+            let region_index = getRegionIndex(test_center);
+
+            let test_center_index;
+
+            if (checked_test_centers_code[test_center.code] !== undefined) {
+                test_center_index = checked_test_centers_code[test_center.code];
+            } else {
+                test_centers[test_centers_counter] = {
+                    name: test_center.name,
+                    code: test_center.code,
+                    displayCity: test_center.city + ", " + test_center.region,
+                    address: test_center.address1 + " " + test_center.address2 + " " + test_center.address3,
+                    region_index: region_index
+                };
+
+                checked_test_centers_code[test_center.code] = test_centers_counter;
+
+                test_center_index = test_centers_counter;
+
+                ++test_centers_counter;
+            }
+
+            exam_packs.push({
+                event_index: i,
+                region_index: region_index,
+                availibility: test_center.seatAvailability,
+                test_center_index: test_center_index
+            })
+
+        }
+    }
+
+    return { events, test_centers, exam_packs }
+}
+
+export default async function Page () {
+
+    const { events, test_centers, exam_packs } = await BusinessLogic();
+
+    return (
+        <>
+            <ClientPage events={events} test_centers={test_centers} exam_packs={exam_packs} regions={regions}  />
+        </>
+    );
+        
+}
+

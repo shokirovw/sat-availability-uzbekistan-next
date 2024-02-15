@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --angle: 45deg;
+  --opacity: 0.5;
+}
+
+@layer base {
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 97%;
+        background-position-y: 8px;
+    }
+
+    .scrollable_list {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    /* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #152077; 
+    @apply rounded-[10px];
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #4F65C6; 
+    @apply lg:rounded-[10px];
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4254a4; 
+  }
+
+  :root {
+    --angle: 45deg;
+    --opacity: 0.5;
+  }
+
+  .conss {
+  /* Paint an image in the border */
+  border-image: conic-gradient(
+      from var(--angle),
+      #4F65C6 0deg 180deg,
+      #152077 180deg 360deg
+    )
+    1 stretch;
+  }
+
+  @supports (background: paint(houdini)) {
+    @property --opacity {
+      syntax: "<number>";
+      initial-value: 0.5;
+      inherits: false;
+    }
+  
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+  
+    @keyframes opacityChange {
+      to {
+        --opacity: 1;
+      }
+    }
+  
+    @keyframes rotate {
+      to {
+        --angle: 360deg;
+      }
+    }
+  
+    .conss {
+      animation: rotate 4s linear infinite, opacityChange 3s infinite alternate;
+    }
+  }
+}
+
+

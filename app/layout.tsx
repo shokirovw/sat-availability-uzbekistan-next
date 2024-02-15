@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Roboto, Public_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['100', '300', '400', '500', '700', '900'],
+  variable: '--font-roboto',
+});
+
+const public_sans = Public_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['100', '300', '400', '500', '700', '900'],
+  variable: '--font-public-sans',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${public_sans.variable} ${roboto.variable}`}>
+      {children}
     </html>
   );
 }
