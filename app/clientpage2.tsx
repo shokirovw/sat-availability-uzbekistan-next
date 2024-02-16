@@ -55,7 +55,7 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
   }
 
   return (
-    <body className={"w-screen relative overflow-x-hidden selection:bg-fuchsia-600/80 selection:text-white bg-primary text-whitetext transition ease-out duration-400 delay-200 " + (hideMode ? "scale-90" : "")}>
+    <body className={"w-screen relative overflow-x-hidden selection:bg-fuchsia-600/95 selection:text-white bg-primary text-whitetext transition ease-out duration-400 delay-200 " + (hideMode ? "scale-90" : "")}>
         <Image
             src="/background_raw_fit.jpg" priority={false} onLoad={(image) => {setBackdrop(0); setImages(true)}}
             className={"w-screen h-screen fixed object-center -z-10 top-0 left-0 object-cover transition-all duration-700 ease-out delay-300 " + (hideMode ? " rounded-3xl opacity-20" : (backdrop == -1 ? "opacity-0" : "opacity-10"))}
@@ -128,8 +128,8 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
                       <Image src={"/college_board.png"} alt="" className="h-6 sm:h-8 md:h-10 w-auto" width={150} height={54.5} priority={false}></Image>
                     </div>
                 </div>
-                <div onClick={() => switchBackdrop()} className={"mt-4 w-fit transition-all rounded-xl text-white/80"}>
-                    <p className="font-publicsans text-[14px] sm:text-base font-light hover:underline hover:cursor-pointer w-fit">Part of Uzbekistan's Sustainable Development Project. <br/> Background: Ulugbek's Observatory, Samarkand, Uzbekistan.</p>
+                <div className={"mt-4 w-fit transition-all rounded-xl text-white/80"}>
+                    <p className="font-publicsans text-[14px] sm:text-base font-light w-fit">Part of Uzbekistan's Sustainable Development Project. <br/> <span className="hover:underline hover:cursor-pointer" onClick={() => switchBackdrop()}>Background: Ulugbek's Observatory, Samarkand, Uzbekistan.</span></p>
                 </div>
             </div>
 
