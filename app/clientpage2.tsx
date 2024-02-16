@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import "./mainpage.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Example from "./select_menu"
 import { OurRegion, OurEventInfo, OurExamPack, OurTestCenterInfo } from "./page";
-
-const mystery_word_server = "Obama";
+import Link from "next/link";
 
 function filterExamPacks (exam_packs: OurExamPack[], region_index: number, event_index: number) {
   const filtered: OurExamPack[]  = [];
@@ -55,16 +54,8 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
     else if (backdrop == 1) setBackdrop(0);
   }
 
-
-  console.log("Region index", regionIndex);
-
-  // console.log("Events", events);
-  console.log("Test centers", test_centers);
-  console.log("Exam packs", exam_packs);
-  // console.log("Regions", regions);
-
   return (
-    <body className={"w-screen relative overflow-x-hidden bg-primary text-whitetext transition ease-out duration-400 delay-200 " + (hideMode ? "scale-90" : "")}>
+    <body className={"w-screen relative overflow-x-hidden selection:bg-fuchsia-600/80 selection:text-white bg-primary text-whitetext transition ease-out duration-400 delay-200 " + (hideMode ? "scale-90" : "")}>
         <Image
             src="/background_raw_fit.jpg" priority={false} onLoad={(image) => {setBackdrop(0); setImages(true)}}
             className={"w-screen h-screen fixed object-center -z-10 top-0 left-0 object-cover transition-all duration-700 ease-out delay-300 " + (hideMode ? " rounded-3xl opacity-20" : (backdrop == -1 ? "opacity-0" : "opacity-10"))}
@@ -77,7 +68,7 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
 
 
             <div className={"section_first transition-all delay-200 " + (hideMode ? "hidden lg:block lg:opacity-0" : "lg:opacity-100")}>
-                <h1 className="font-roboto text-5xl font-medium">SAT Seat Availability</h1>
+                <h1 className="font-roboto text-5xl font-medium ">SAT Seat Availability</h1>
                 <h2 className="font-roboto text-4xl font-light tracking-wide">Uzbekistan</h2>
 
                 <div className="form mt-8 lg:mt-10 space-y-10 w-full lg:w-4/5 xl:w-3/5">
@@ -109,11 +100,11 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
                     {filterExamPacks(exam_packs, regionIndex, eventIndex).map((v, idx) => (
                     <div className="rounded-2xl px-6 py-5 hover:text-blacktext hover:bg-indigo-50 hover:ring-0 group transition bg-indigo-300/20 text-white/95 ring-white/40 ring-1">
                         <div className="flex flex-row items-center flex-wrap justify-between gap-y-0.5">
-                        <h2 className="text-[21px] lg:text-[24px] font-publicsans font-light ">{test_centers[v.test_center_index].name}</h2>
+                        <h2 className="text-[21px] lg:text-[24px] font-publicsans select-all font-light">{test_centers[v.test_center_index].name}</h2>
                         <p className="text-sm lg:text-base font-publicsans group-hover:text-blacktext/90 text-white/50 ">{events[v.event_index].eventDisplayDate + ", " + events[v.event_index].weekdayDisplay}</p>
                         </div>
                         <div className="w-3/5 mt-1">
-                        <p className="font-publicsans italic group-hover:text-blacktext/65 text-[15px] lg:text-base text-white/50">{test_centers[v.test_center_index].address}</p>
+                          <Link href={"https://www.google.com/maps/search/" + test_centers[v.test_center_index].address}><p className="font-publicsans italic group-hover:text-blacktext/65 text-[15px] lg:text-base text-white/50">{test_centers[v.test_center_index].address}</p></Link>
                         </div>
                         <div className="flex flex-row items-center gap-x-4 mt-3 lg:mt-4">
                           <span className="relative flex h-3 w-3">
@@ -131,7 +122,7 @@ export default function ClientPage({ events, test_centers, exam_packs, regions }
 
 
             <div className="section_third flex flex-col justify-end pl-3 lg:pl-0">
-                <div className="w-full h-fit flex flex-row items-end flex-wrap gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-5">
+                <div className="w-full select-none h-fit flex flex-row items-end flex-wrap gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-5">
                     <Image src={"/uzlogo.png"} alt="" className={"h-10 sm:h-12 md:h-14 w-auto transition-opacity delay-700 " + (images ? "" : "opacity-0")} width={130} height={125} priority={false}></Image>
                     <div className={"bg-white h-8 px-3 sm:h-10 sm:px-4 md:h-12 md:px-5 rounded-full flex flex-row items-center justify-center transition-opacity delay-1000 " + (images ? "" : "opacity-0")}>
                       <Image src={"/college_board.png"} alt="" className="h-6 sm:h-8 md:h-10 w-auto" width={150} height={54.5} priority={false}></Image>
